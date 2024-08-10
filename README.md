@@ -9,6 +9,7 @@
 - **PHP 7.4.2**
 - **Composer** (должен быть установлен на локальной машине)
 - **Codeception 4** 
+- **Chromedriver** (либо драйвер на любой другой браузер, в таком случае заменить в файле acceptance.suite.yml)
 - **Allure CLI** для генерации отчетов
 
 ## Установка
@@ -40,7 +41,18 @@ cd TestTask
 composer install
 ```
 
-### 4. Установка Allure CLI
+### 4. Установка selenium-standalone
+
+- Требуется Java
+- Требуется NodeJS
+- Самый быстрый способ установки [selenium-standalone использование NodeJS](https://www.npmjs.com/package/selenium-standalone).
+
+### 5. Установка Chromedriver
+
+- 1.Скачайте релиз Chromedriver соответсвующий вашей версии chrome на локальной машине [официального сайта](https://getwebdriver.com/chromedriver).
+- 2.Положите в корень проекта. (замените тот который лежит сейчас в проекте)
+
+### 6. Установка Allure CLI
 
 Для генерации отчетов убедитесь, что у вас установлен Allure CLI. Ниже приведены инструкции для установки Allure CLI на Windows и macOS.
 
@@ -85,7 +97,13 @@ brew install allure
 
 ## Запуск тестов
 
-###1. **Запуск всех тестов**
+###1. **Запуск selenium-standalone**
+
+```bash
+selenium-standalone start
+```
+
+###2. **Запуск всех тестов**
 
 Для запуска всех тестов с отображением подробных шагов и отладочной информации:
 
@@ -93,7 +111,7 @@ brew install allure
 php vendor/bin/codecept run --debug --steps
 ```
 
-###2. **Запуск тестов в конкретном модуле**
+###3. **Запуск тестов в конкретном модуле**
 
 Вы можете запустить тесты в определенном модуле (например, acceptance):
 
@@ -101,7 +119,7 @@ php vendor/bin/codecept run --debug --steps
 php vendor/bin/codecept run acceptance --debug --steps
 ```
 
-###3. **Генерация отчета Allure**
+###4. **Генерация отчета Allure**
 
 После выполнения тестов, для генерации и просмотра отчета локально выполните:
 
