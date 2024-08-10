@@ -1,0 +1,22 @@
+{
+    "require-dev": {
+        "codeception/codeception": "^4.2",
+        "codeception/module-phpbrowser": "^1.0.0",
+        "allure-framework/allure-codeception": "^1.5.2",
+        "codeception/module-asserts": "^1.0.0",
+        "codeception/module-webdriver": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "vendor/bin/codecept build"
+        ],
+        "post-update-cmd": [
+            "vendor/bin/codecept build"
+        ]
+    }
+}
